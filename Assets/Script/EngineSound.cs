@@ -1,29 +1,34 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EngineSound : MonoBehaviour
 {
-    [SerializeField] AudioSource engineSound;
+    [SerializeField] AudioSource engineSoundAcceleration;
     [SerializeField] Rigidbody carRigidbody;
-    [SerializeField] float minSpeed = 0.1f;
 
-    void Start()
-    {
-        engineSound.loop = true;
-    }
+    [SerializeField] float minSpeedStart = 1f;
+    [SerializeField] float maxSpeed = 50f;
+    [SerializeField] float pitchMultiplier = 1.5f;
+    [SerializeField] float volumeMultiplier = 1f;
+
+    public InputActionReference breakingAction;
 
     void Update()
     {
         float speed = carRigidbody.linearVelocity.magnitude;
 
-        if (speed > minSpeed)
+        if (speed > minSpeedStart)
         {
-            if (!engineSound.isPlaying)
-                engineSound.Play();
+            if (!engineSoundAcceleration.isPlaying)
+                engineSoundAcceleration.Play();
+
+            float normalizedSpeed = Mathf.InverseLerp(minSpeedStart, maxSpeed, speed);
+            engineSoundAcceleration.volume = Mathf.Lerp(0.3f, 1f, normalizedSpeed) * volumeMultiplier;
+            engineSoundAcceleration.pitch = Mathf.Lerp(0.8f, pitchMultiplier, normalizedSpeed);
         }
         else
         {
-            if (engineSound.isPlaying)
-                engineSound.Pause();
+            engineSoundAcceleration.volume = Mathf.Lerp(engineSoundAcceleration.volume, 0f, Time.deltaTime * 5f);
         }
     }
 }

@@ -8580,11 +8580,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 71f45efbf31c02345b6131c1b0db0512, type: 3}
+  m_Resource: {fileID: 8300000, guid: 64a726f6ae842684581cbb5e47e230ae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8678,9 +8678,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ae1acdc3bf2dd479dfdce06c9f7c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EngineSound
-  engineSound: {fileID: 1554483444}
+  engineSoundAcceleration: {fileID: 1554483444}
   carRigidbody: {fileID: 1554483447}
-  minSpeed: 0.1
+  minSpeedStart: 0.1
+  maxSpeed: 50
+  pitchMultiplier: 1.5
+  volumeMultiplier: 1
+  breakingAction: {fileID: -8728090044331412004, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &1554483446
 MonoBehaviour:
   m_ObjectHideFlags: 0
