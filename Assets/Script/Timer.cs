@@ -10,16 +10,15 @@ public class Chronometre : MonoBehaviour
     private float temps = 0f;
     private bool enCours = false;
     private float meilleurTemps = Mathf.Infinity;
+    private bool premierTour = true;
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("MeilleurTemps"))
-        {
-            meilleurTemps = PlayerPrefs.GetFloat("MeilleurTemps");
-        }
+        meilleurTemps = Mathf.Infinity;
+        premierTour = true;
 
         if (meilleurTempsText != null)
-            meilleurTempsText.text = "Meilleur Temps: " + ObtenirMeilleurTemps();
+            meilleurTempsText.text = "Meilleur Temps : --:--.---";
     }
 
     void Update()
@@ -34,29 +33,41 @@ public class Chronometre : MonoBehaviour
 
     public void DemarrerChrono()
     {
-        temps = 0f;
-        enCours = true;
-        Debug.Log("Chrono démarré !");
+        if (!enCours)
+        {
+            temps = 0f;
+            enCours = true;
+            Debug.Log("⏱️ Chrono démarré !");
+        }
     }
 
     public void ArreterChrono()
     {
         enCours = false;
 
-        if (temps < meilleurTemps)
+        if (premierTour)
         {
             meilleurTemps = temps;
-            PlayerPrefs.SetFloat("MeilleurTemps", meilleurTemps);
-            PlayerPrefs.Save();
-
-            Debug.Log("Nouveau record : " + FormatTemps(meilleurTemps));
+            premierTour = false;
+            Debug.Log("🏁 Premier tour : " + FormatTemps(meilleurTemps));
+        }
+        else
+        {
+            // Si c’est un meilleur temps
+            if (temps < meilleurTemps)
+            {
+                meilleurTemps = temps;
+                Debug.Log("🏆 Nouveau meilleur tour : " + FormatTemps(meilleurTemps));
+            }
         }
 
         if (meilleurTempsText != null)
             meilleurTempsText.text = "Meilleur Temps : " + ObtenirMeilleurTemps();
+
+        DemarrerChrono();
     }
 
-    public string FormatTemps(float t)
+    private string FormatTemps(float t)
     {
         int minutes = Mathf.FloorToInt(t / 60f);
         int secondes = Mathf.FloorToInt(t % 60f);
