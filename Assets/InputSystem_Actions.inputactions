@@ -1037,6 +1037,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "497a84fb-1fd8-4360-817e-6fccce3b5c53",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "38aa06e6-0750-4aa5-9788-a37d22b4946d",
                     "path": "1DAxis",
@@ -1071,6 +1082,39 @@
                 },
                 {
                     "name": "1D Axis",
+                    "id": "0e19d096-272f-4534-aef2-3566a2196f0f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "021820d7-58ff-4bde-ad1a-36346d1c6fee",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "e2c86fe2-ba07-4d01-a401-997bbade9dcc",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
                     "id": "f5c4dda0-00dc-4819-9720-96cd468c62b4",
                     "path": "1DAxis",
                     "interactions": "",
@@ -1095,6 +1139,39 @@
                     "name": "positive",
                     "id": "e96075da-237a-4879-9ebf-834f9802eede",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "ef5a0737-7db3-487b-b67e-b1d984a5f1b6",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "41f617e8-1fe1-4877-8e2b-07e1e7154013",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "143aff92-8409-4dd8-b7db-351e2af5123c",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
